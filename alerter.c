@@ -14,7 +14,7 @@ int networkAlertStub(float celcius) {
     return 200;
 }
 
-#if(ENABLE_PRODUCTION_CODE == STD_OFF)
+#if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
 void testalertInCelcius(float celcius, int returnCode) {
     assert(celcius<returnCode);
 }  
@@ -23,7 +23,7 @@ void testalertInCelcius(float celcius, int returnCode) {
 void alertInCelcius(float farenheit) {
     float celcius = (farenheit - 32) * 5 / 9;
     int returnCode = networkAlertStub(celcius);
-#if(ENABLE_PRODUCTION_CODE == STD_ON)
+#if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_ON)
     if (returnCode != 200) {
         // non-ok response is not an error! Issues happen in life!
         // let us keep a count of failures to report
