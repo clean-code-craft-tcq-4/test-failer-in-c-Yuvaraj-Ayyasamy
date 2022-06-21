@@ -16,8 +16,8 @@ int printColorMap()
     int majorIndex, minorIndex, pairNumber = 0, pairLength = 0;
 
     for(majorIndex = 0; majorIndex < numberOfMajorColors; majorIndex++) {
-        for(minorIndex = 1; minorIndex <= numberOfMinorColors; minorIndex++) {
-            pairLength = sprintf(&colorMap[pairNumber], "%d |%s |%s\n", majorIndex * numberOfMajorColors + minorIndex, majorColor[majorIndex], minorColor[minorIndex-1]);
+        for(minorIndex = 0; minorIndex < numberOfMinorColors; minorIndex++) {
+            pairLength = sprintf(&colorMap[pairNumber], "%d |%s |%s\n", (majorIndex * numberOfMajorColors + minorIndex)+1, majorColor[majorIndex], minorColor[minorIndex]);
             pairNumber += pairLength;
         }
     }
