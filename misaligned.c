@@ -40,6 +40,7 @@ void ColorPairToString(const ColorPair* colorPair, char* buffer) {
 
 ColorPair GetColorFromPairNumber(int pairNumber) {
     ColorPair colorPair;
+    pairNumber--;
     colorPair.pairNumber = colorReferenceManual[pairNumber].pairNumber;
     colorPair.majorColor = colorReferenceManual[pairNumber].majorColor;
     colorPair.minorColor = colorReferenceManual[pairNumber].minorColor;
