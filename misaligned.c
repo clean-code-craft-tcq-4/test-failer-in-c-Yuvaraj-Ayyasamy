@@ -38,14 +38,15 @@ void colorCodeReferenceManual()
 
 void testManualAlignment()
 {
-    int result = strcmp(&referenceColorMap[0], &colorMap[0]);
+    int result;
+    colorCodeReferenceManual();
+    result = strcmp(&referenceColorMap[0], &colorMap[0]);
     assert( result == 0);     
 }
 
 int main() 
 {
     int result = printColorMap();
-    colorCodeReferenceManual();
     assert(result == 25);
     testManualAlignment();
     printf("All is well (maybe!)\n");
