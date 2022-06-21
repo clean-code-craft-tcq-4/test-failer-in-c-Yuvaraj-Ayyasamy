@@ -21,8 +21,8 @@ const int MAX_COLORPAIR_NAME_CHARS = 16;
 
 int prepareColorReferenceManual() {
     int majorIndex, minorIndex, colorPairIndex;
-    for(majorIndex = 0, colorPairIndex = 0; majorIndex < numberOfMajorColors; majorIndex++) {
-        for(minorIndex = 0; minorIndex < numberOfMinorColors; minorIndex++) {
+    for(majorIndex = 1, colorPairIndex = 0; majorIndex <= numberOfMajorColors; majorIndex++) {
+        for(minorIndex = 1; minorIndex <= numberOfMinorColors; minorIndex++) {
             colorReferenceManual[colorPairIndex].pairNumber = colorPairIndex + 1;
             colorReferenceManual[colorPairIndex].majorColor = (enum MajorColor)(majorIndex);
             colorReferenceManual[colorPairIndex].minorColor = (enum MinorColor)(minorIndex);
