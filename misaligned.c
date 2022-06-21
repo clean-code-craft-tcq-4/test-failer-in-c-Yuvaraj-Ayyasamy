@@ -125,8 +125,8 @@ int main() {
     testPairToNumber(BLACK, ORANGE, 12);
     result = printColorMap();
     assert(result == colorPairCount);
-    testMajorColorCode(colorReferenceManual[0]);
-    testMinorColorCode(colorReferenceManual[25]);
+    testMajorColorCode(&colorReferenceManual[0]);
+    testMinorColorCode(&colorReferenceManual[25]);
     printf("All is well (maybe!)\n");
     return 0;
 }
