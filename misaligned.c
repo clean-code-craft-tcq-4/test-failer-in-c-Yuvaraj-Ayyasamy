@@ -24,8 +24,8 @@ int prepareColorReferenceManual() {
     for(majorIndex = 0, colorPairIndex = 0; majorIndex < numberOfMajorColors; majorIndex++) {
         for(minorIndex = 0; minorIndex < numberOfMinorColors; minorIndex++) {
             colorReferenceManual[colorPairIndex].pairNumber = colorPairIndex + 1;
-            colorReferenceManual[colorPairIndex].majorColor = MajorColorNames[majorIndex];
-            colorReferenceManual[colorPairIndex].minorColor = MinorColorNames[minorIndex];
+            colorReferenceManual[colorPairIndex].majorColor = MajorColor[majorIndex];
+            colorReferenceManual[colorPairIndex].minorColor = MinorColor[minorIndex];
             colorPairIndex++;
         }
     }
@@ -92,9 +92,9 @@ void testMinorColorCode(ColorPair* const colorPair)
     
   if((colorPair->pairNumber > 0) && (colorPair->pairNumber <= MAX_COLORPAIR_COUNT))
   {
-     testColorCodeData = GetColorCodeFromPairNumber(colorPair->pairNumber);
+     testColorCodeData = GetColorFromPairNumber(colorPair->pairNumber);
     
-     assert(testColorCodeData.minorColorCode == colorPair->minorColorCode); 
+     assert(testColorCodeData.minorColor == colorPair->minorColor); 
   }
   else if(colorPair->pairNumber == 0)
   {
@@ -108,9 +108,9 @@ void testMajorColorCode(ColorPair* const colorPair)
     
   if((colorPair->pairNumber > 0) && (colorPair->pairNumber <= MAX_COLORPAIR_COUNT))
   {
-     testColorCodeData = GetColorCodeFromPairNumber(colorPair->pairNumber);
+     testColorCodeData = GetColorFromPairNumber(colorPair->pairNumber);
     
-     assert(testColorCodeData.minorColorCode == colorPair->minorColorCode); 
+     assert(testColorCodeData.minorColor == colorPair->minorColor); 
   }
   else if(colorPair->pairNumber == 0)
   {
