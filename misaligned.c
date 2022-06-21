@@ -21,8 +21,8 @@ const int MAX_COLORPAIR_NAME_CHARS = 16;
 
 int prepareColorReferenceManual() {
     int majorIndex, minorIndex, colorPairIndex;
-    for(majorIndex = 1, colorPairIndex = 0; majorIndex <= numberOfMajorColors; majorIndex++) {
-        for(minorIndex = 1; minorIndex <= numberOfMinorColors; minorIndex++) {
+    for(majorIndex = 1, colorPairIndex = 0; majorIndex <= 5; majorIndex++) {
+        for(minorIndex = 1; minorIndex <= 5; minorIndex++) {
             colorReferenceManual[colorPairIndex].pairNumber = colorPairIndex + 1;
             colorReferenceManual[colorPairIndex].majorColor = (enum MajorColor)(majorIndex);
             colorReferenceManual[colorPairIndex].minorColor = (enum MinorColor)(minorIndex);
@@ -48,15 +48,15 @@ ColorPair GetColorFromPairNumber(int pairNumber) {
 }
 
 int GetPairNumberFromColor(const ColorPair* colorPair) {
-    return colorPair->majorColor * numberOfMinorColors +
+    return colorPair->majorColor * 5 +
             colorPair->minorColor + 1;
 }
 
 int printColorMap() {
     int majorIndex, minorIndex;
-    for(majorIndex = 0; majorIndex < numberOfMajorColors; majorIndex++) {
-        for(minorIndex = 0; minorIndex < numberOfMinorColors; minorIndex++) {
-            printf("%d | %s | %s\n", majorIndex * numberOfMajorColors + minorIndex, MajorColorNames[majorIndex], MinorColorNames[minorIndex]);
+    for(majorIndex = 0; majorIndex < 5; majorIndex++) {
+        for(minorIndex = 0; minorIndex < 5; minorIndex++) {
+            printf("%d | %s | %s\n", majorIndex * 5 + minorIndex, MajorColorNames[majorIndex], MinorColorNames[minorIndex]);
         }
     }
     return majorIndex * minorIndex;
