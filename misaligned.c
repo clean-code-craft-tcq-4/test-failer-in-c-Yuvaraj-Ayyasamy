@@ -24,8 +24,8 @@ int prepareColorReferenceManual() {
     for(majorIndex = 0, colorPairIndex = 0; majorIndex < numberOfMajorColors; majorIndex++) {
         for(minorIndex = 0; minorIndex < numberOfMinorColors; minorIndex++) {
             colorReferenceManual[colorPairIndex].pairNumber = colorPairIndex + 1;
-            colorReferenceManual[colorPairIndex].majorColor = MajorColor[majorIndex];
-            colorReferenceManual[colorPairIndex].minorColor = MinorColor[minorIndex];
+            colorReferenceManual[colorPairIndex].majorColor = (enum MajorColor)(majorIndex);
+            colorReferenceManual[colorPairIndex].minorColor = (enum MinorColor)(minorIndex);
             colorPairIndex++;
         }
     }
