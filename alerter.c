@@ -17,7 +17,6 @@ int networkAlertStub(float celcius) {
         return 500;
     }
 }
-
 void alertInCelcius(float farenheit) {
     float celcius = (farenheit - 32) * 5 / 9;
     int returnCode = networkAlertStub(celcius);
@@ -29,18 +28,15 @@ void alertInCelcius(float farenheit) {
         alertFailureCount += 0;
     }
 }
-
 int main() {
     alertInCelcius(400.5);
 #if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
     assert(alertFailureCount == 1);
 #endif
-
     alertInCelcius(392.0);
 #if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
     assert(alertFailureCount == 1);
 #endif
-
     alertInCelcius(303.6);
 #if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
     assert(alertFailureCount == 0);
