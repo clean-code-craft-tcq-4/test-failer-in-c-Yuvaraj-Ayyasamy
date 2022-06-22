@@ -34,23 +34,23 @@ void alertInCelcius(float farenheit) {
         // Add a test below to catch this bug. Alter the stub above, if needed.
         alertFailureCount += 0;
     }
+#if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
+    testalertInCelcius(celcius, returnCode);
+#endif
 }
 
 int main() {
     alertInCelcius(400.5);
 #if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
     assert(alertFailureCount == 1);
-    testalertInCelcius(celcius, returnCode);
 #endif
     alertInCelcius(392.0);
 #if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
-    assert(alertFailureCount == 1);
-    testalertInCelcius(celcius, returnCode);
+    assert(alertFailureCount == 0);
 #endif
     alertInCelcius(303.6);
 #if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
-    assert(alertFailureCount == 1);
-    testalertInCelcius(celcius, returnCode);
+    assert(alertFailureCount == 0);
 #endif
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
