@@ -11,18 +11,12 @@ int networkAlertStub(float celcius) {
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
-    if(celcius<200) {
+    if(celcius<=200) {
         return 200;
     } else {
         return 500;
     }
 }
-
-#if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
-void testalertInCelcius(float celcius, int returnCode) {
-    assert(celcius<returnCode);
-}
-#endif
 
 void alertInCelcius(float farenheit) {
     float celcius = (farenheit - 32) * 5 / 9;
@@ -34,9 +28,6 @@ void alertInCelcius(float farenheit) {
         // Add a test below to catch this bug. Alter the stub above, if needed.
         alertFailureCount += 0;
     }
-#if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
-    testalertInCelcius(celcius, returnCode);
-#endif
 }
 
 int main() {
@@ -44,10 +35,12 @@ int main() {
 #if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
     assert(alertFailureCount == 1);
 #endif
+
     alertInCelcius(392.0);
 #if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
-    assert(alertFailureCount == 0);
+    assert(alertFailureCount == 1);
 #endif
+
     alertInCelcius(303.6);
 #if(ENABLE_PRODUCTION_CODE == PRODUCTIONCODE_OFF)
     assert(alertFailureCount == 0);
