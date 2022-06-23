@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <assert.h>
-
-int alertFailureCount = 0;
+#include "alerter.h"
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
-    if(celcius<=200) {
+    if(celcius <= THRESHOLD_CELCIUS_VALUE) {
         return 200;
     } else {
         return 500;
