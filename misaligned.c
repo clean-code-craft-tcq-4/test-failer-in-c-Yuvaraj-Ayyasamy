@@ -15,10 +15,11 @@ int printColorMap()
     int majorIndex, minorIndex, pairNumber = 0, pairLength = 0;
     for(majorIndex = 0; majorIndex < numberOfMajorColors; majorIndex++) {
         for(minorIndex = 0; minorIndex < numberOfMinorColors; minorIndex++) {
-            pairLength = sprintf(&colorMap[pairNumber], "%d |%s |%s\n", (majorIndex * numberOfMajorColors + minorIndex)+1, majorColor[majorIndex], minorColor[minorIndex]);
+            pairLength = sprintf(&colorMap[pairNumber], "%d\t|%s\t|%s\n", (majorIndex * numberOfMajorColors + minorIndex)+1, majorColor[majorIndex], minorColor[minorIndex]);
             pairNumber += pairLength;
         }
     }
+    printf("%s", colorMap);
     return majorIndex * minorIndex;
 }
 void colorCodeReferenceManual()
