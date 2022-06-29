@@ -16,7 +16,7 @@ float farenheitToCelcius(float farenheit) {
     return ((farenheit - 32) * 5 / 9);
 }
 
-void alertInCelcius(float farenheit) {
+void alertInCelcius(float celcius) {
     // float celcius = farenheitToCelcius(farenheit);
     int returnCode = networkAlertStub(celcius);
     if (returnCode != OK) {
